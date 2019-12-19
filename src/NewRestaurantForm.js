@@ -16,6 +16,7 @@ class NewRestaurantForm extends Component {
 
   render () {
     const { inputText } = this.state
+
     return (
       <div>
         <input
