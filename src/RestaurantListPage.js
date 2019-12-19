@@ -3,21 +3,37 @@ import NewRestaurantForm from './NewRestaurantForm'
 import RestaurantList from './RestaurantList'
 
 class RestaurantListPage extends Component {
-  state = { restaurantNames: [] }
+  state = {
+    restaurantNames: [],
+    showNewRestaurantForm: true
+  }
 
   handleAddRestaurant = newRestaurantName => {
     this.setState(state => ({
-      restaurantNames: [newRestaurantName, ...state.restaurantNames]
+      restaurantNames: [newRestaurantName, ...state.restaurantNames],
+      showNewRestaurantForm: true
     }))
   }
 
+  handleShowNewRestaurantForm = () => {
+    this.setState({ showNewRestaurantForm: false })
+  }
+
   render () {
-    const { restaurantNames } = this.state
+    const { restaurantNames, showNewRestaurantForm } = this.state
 
     return (
       <div>
-        <button data-test='addRestaurantButton'>Add Restaurant</button>
-        <NewRestaurantForm onSave={this.handleAddRestaurant} />
+        {showNewRestaurantForm ? (
+          <button
+            onClick={this.handleShowNewRestaurantForm}
+            data-test='addRestaurantButton'
+          >
+            Add Restaurant
+          </button>
+        ) : (
+          <NewRestaurantForm onSave={this.handleAddRestaurant} />
+        )}
         <RestaurantList restaurants={restaurantNames} />
       </div>
     )
