@@ -1,0 +1,37 @@
+{
+  "name": "test-dd",
+  "version": "0.1.0",
+  "description": "TDD test",
+  "main": "index.js",
+  "author": "Andrius Jurgsaitis",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "unit": "jest test/",
+    "e2e": "cypress open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^24.9.0",
+    "cypress": "^3.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>test/setup.js"]
+  },
+  "babel": {
+    "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "plugins": ["@babel/plugin-proposal-class-properties"]
+  }
+}
